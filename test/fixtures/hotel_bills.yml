@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  accommodation_fee: 1
+  lodgment_date: 2024-10-15
+  room: one
+  reservation: one
+
+two:
+  accommodation_fee: 1
+  lodgment_date: 2024-10-15
+  room: two
+  reservation: two
