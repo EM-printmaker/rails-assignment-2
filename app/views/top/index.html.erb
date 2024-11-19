@@ -1,2 +1,48 @@
-<h1>Top#index</h1>
-<p>Find me in app/views/top/index.html.erb</p>
+<div>
+  <div class="p-first-view-container">
+    <h2 class="p-first-view__title">
+      宿泊先を検索
+    </h2>
+    <%= form_with(url: search_path, class: "p-search-form") do |f| %>
+      <%= f.text_field :word , class: "form-control", placeholder: "目的地"%>
+      <%= f.submit "検索", class: "btn btn-outline-success" %>
+    <% end %>
+  </div>
+  <div class="l-wrapper">
+    <h3>おすすめエリア</h3>
+    <div class="c-card-container">
+      <a href="" class="p-recommend-area p-recommend-area--tokyo">
+        <span class="p-recommend-area__text">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+          </svg>
+          東京
+        </span>
+      </a>
+      <a href="" class="p-recommend-area p-recommend-area--osaka">
+        <span class="p-recommend-area__text">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+          </svg>
+          大阪
+        </span>
+      </a>
+      <a href="" class="p-recommend-area p-recommend-area--kyoto">
+        <span class="p-recommend-area__text">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+          </svg>
+          京都
+        </span>
+      </a>
+      <a href="" class="p-recommend-area p-recommend-area--sapporo">
+        <span class="p-recommend-area__text">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+          </svg>
+          札幌
+        </span>
+      </a>
+    </div>
+  </div>
+</div>

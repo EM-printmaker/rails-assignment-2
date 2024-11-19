@@ -1,0 +1,19 @@
+.p-first-view-container {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @include mq(sm) {
+    height: 300px;
+  }
+}
+
+.p-first-view {
+  &__title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+  }
+}

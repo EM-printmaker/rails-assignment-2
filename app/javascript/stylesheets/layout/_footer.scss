@@ -1,0 +1,13 @@
+.l-footer {
+  position: sticky;
+  top: 100vh;
+  top: 100dvh;
+  background-color: $main-color;
+  color: white;
+  padding: 1rem 0;
+  &__logo {
+    color: white;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+}

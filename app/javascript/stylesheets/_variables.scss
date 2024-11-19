@@ -1,1 +1,18 @@
-$b: #206287;
+$main-color: #203744;
+$gray: #888;
+$light-gray: #e9ecef;
+$white: #fff;
+$black: #000;
+$dark: #212529;
+$link: #006699;
+$red: #cc4343;
+$green: #198754;
+
+
+$breakpoints: (
+  "sm": "screen and (min-width: 400px)",
+  "min500": "screen and (min-width: 500px)",
+  "md": "screen and (min-width: 768px)",
+  "lg": "screen and (min-width: 1000px)",
+  "xl": "screen and (min-width: 1200px)",
+) !default;

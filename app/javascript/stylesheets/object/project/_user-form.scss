@@ -1,0 +1,29 @@
+.p-user-form {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: minmax(auto, 400px);
+  padding: 0.5rem;
+  @include mq(sm) {
+    padding: 2.5rem;
+  }
+  &__title {
+    &--main {
+      font-weight: 700;
+    }
+    &--sub {
+      font-size: 0.8em;
+      font-weight: 600;
+    }
+  }
+  &__label {
+    font-weight: 600;
+  }
+  .form {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  .form-control {
+    display: inline-block;
+  }
+}

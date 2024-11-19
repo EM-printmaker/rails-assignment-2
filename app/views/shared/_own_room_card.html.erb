@@ -1,0 +1,19 @@
+<div class="p-room-card">
+  <div class="p-room-card__header">
+    <h4>テストホテル</h4>
+    <p>作成日：<span>2024/10/12</span></p>
+    <p class="p-room-card__price">料金¥40,000</p>
+  </div>
+  <div class="p-room-card__content-container">
+    <%= image_pack_tag "default-image.png", class: "p-room-card__image" %>
+    <div class="p-room-card__content">
+      <p class="p-room-card__content--text">施設紹介文です。これはテストです。後ほど削除してくださ施設紹介文です。これはテストです。後ほど削除してくださ施設紹介文です。これはテストです。後ほど削除してくださ施設紹介文です。
+        これはテストです。後ほど削除してくださ施設紹介文です。これはテストです。後ほど削除してくださ施設紹介文です。これはテストです。後ほど削除してくださ施設紹介文です。これはテストです。後ほど削除してくださ施設紹介文です。これはテストです。後ほど削除してください
+      </p>
+      <div class="p-room-card__link">
+        <%= link_to "編集", root_path, class: "p-room-card__link--edit" %>
+        <%= link_to "削除", root_path, class: "p-room-card__link--delete" %>
+      </div>
+    </div>
+  </div>
+</div>
