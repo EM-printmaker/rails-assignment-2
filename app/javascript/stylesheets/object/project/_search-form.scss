@@ -2,5 +2,23 @@
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
-  
+}
+
+.p-search_result__form {
+  @extend .p-search-form;
+  flex-direction: row;
+}
+
+.p-search_result {
+  &__header {
+    padding: 3rem 5rem;
+    display: flex;
+    justify-content: center;
+  }
+  &__count {
+    font-size: 1.2rem;
+    &--number {
+      font-weight: 600;
+    }
+  }
 }

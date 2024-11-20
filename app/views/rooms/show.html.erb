@@ -1,0 +1,23 @@
+<div class="l-wrapper">
+  <div class="p-room-detail__header">
+    <%= link_to "←戻る", :back, class: "p-room-detail__header--back"%>
+    <% if user_signed_in? && current_user.rooms.exists?(id: @room.id) %>
+      <%= link_to "編集", edit_room_path, class: "p-room-detail__header--back"%>
+    <% end %>
+  </div>
+  <div class="p-room-detail__container">
+    <%= image_tag @room.room_image, class: "p-room-detail__image"%>
+    <div class="p-room-detail__content">
+      <div class="p-room-detail__name-rate">
+        <h4><%= @room.name %></h4>
+        <p>¥<%= @room.rate %>〜</p>
+      </div>
+      <p><%= @room.address %></p>
+      <p><%= @room.description %></p>
+      <div>
+      
+      </div>
+      <%= link_to "予約する", root_path, class: "btn btn-outline-success u-button-width"%>
+    </div>
+  </div>
+</div>

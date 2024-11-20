@@ -1,3 +1,5 @@
+// own
+
 .p-own-room__container {
   margin-top: 2rem;
   &:last-child {
@@ -11,4 +13,46 @@
   align-items: center;
   margin: 0 auto;
   max-width: 400px;
+}
+
+// show
+.p-room-detail__header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  padding: 1rem 0.5rem;
+  &--back {
+    color: $link;
+  }
+}
+
+.p-room-detail__container {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  @include mq(lg) {
+    flex-direction: row;
+    max-width: 1000px;
+    gap: 2rem;
+  }
+}
+
+.p-room-detail {
+  &__image {
+    width: 100%;
+    @include mq(lg) {
+      width: 40%;
+    }
+  }
+  &__content {
+    flex-grow: 1;
+    border: 1px solid $light-gray;
+    padding: 2rem 1.5rem;
+  }
+  &__name-rate {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 }

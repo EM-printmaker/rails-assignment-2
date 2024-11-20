@@ -23,14 +23,16 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @room = Room.find(params[:id])
+    @user = current_user
   end
   
   def edit
-    @room = Room.find(params[:id])
+    @room = current_user.rooms.find(params[:id])
   end
 
   def update
-    @room = Room.find(params[:id])
+    @room = current_user.rooms.find(params[:id])
     if @room.update(params.require(:room).permit(:name, :description, :rate, :address, :room_image))
       flash[:notice] =  "施設情報を更新しました"
       redirect_to :own_rooms
@@ -41,7 +43,7 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    @room = Room.find(params[:id])
+    @room = current_user.rooms.find(params[:id])
     @room.destroy
     flash[:notice] = "施設を削除しました"
     redirect_to :own_rooms
