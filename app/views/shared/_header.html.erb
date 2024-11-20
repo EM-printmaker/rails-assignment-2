@@ -6,7 +6,7 @@
         <% if user_signed_in? %>
           <div class="dropdown text-end">
             <a href="#" class="l-header__menu dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              <%= image_tag avatar_url_for(current_user), size: 32, class: "c-avatar" %>
+              <%= image_tag current_user.avatar, size: 32, class: "c-avatar" %>
               <span class="l-header__menu--name"><%= current_user.name %></span>
             </a>
             <ul class="dropdown-menu text-small">

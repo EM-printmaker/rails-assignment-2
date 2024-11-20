@@ -6,9 +6,11 @@ class CreateRooms < ActiveRecord::Migration[6.1]
       t.integer :rate
       t.string :address
       t.string :room_image
-      t.references :user, null: false, foreign_key: true
+      t.references :user, null: false
 
       t.timestamps
     end
+
+    add_foreign_key :rooms, :users, on_delete: :cascade
   end
 end

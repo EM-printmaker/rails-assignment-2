@@ -1,4 +1,9 @@
 window.addEventListener("load",function(){
+  var imageInput = document.querySelector('#imageInput');
+  imageInput.addEventListener('change', function() {
+    previewImage(this);
+  });
+  
   function previewImage(obj)
     {
       var fileReader = new FileReader();
@@ -8,9 +13,4 @@ window.addEventListener("load",function(){
           }
           fileReader.readAsDataURL(obj.files[0]);
       };
-  
-  const imageInput = document.querySelector('#imageInput');
-  imageInput.addEventListener('change', function() {
-    previewImage(this);
-  });
 });

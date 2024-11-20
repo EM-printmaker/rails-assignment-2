@@ -20,7 +20,7 @@
         <%= form_with(model: @user, class: "form p-user-edit") do |f| %>
           <div class="field p-user-edit__input align-items-center">
             <%= f.label :avatar, class: "p-user-edit__label" %>
-            <%= image_tag avatar_url_for(current_user), size: 56, class: "c-avatar", id: "imagePreview" %>
+            <%= image_tag current_user.avatar, size: 56, class: "c-avatar", id: "imagePreview" %>
             <label class="c-select-button">
               画像をアップロード
               <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", id: "imageInput", class: "u-hidden" %>

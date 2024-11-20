@@ -1,4 +1,15 @@
 <div class="l-wrapper">
   <h2 class="">登録済み一覧</h2>
-  <%= render partial: "shared/own_room_card" %>
+  <% if @rooms.present? %>
+    <% @rooms.each do |room| %>
+      <div class="p-own-room__container">
+        <%= render partial: "shared/own_room_card", locals: { room: room } %>
+      </div>
+    <% end %>
+    <% else %>
+      <div class="p-own-room__no-data-container">
+        <p>データが存在しません。</p>
+        <%= link_to "施設を登録する", new_room_path, class: "btn btn-outline-success u-button-width"%>
+      </div>
+  <% end %>
 </div>

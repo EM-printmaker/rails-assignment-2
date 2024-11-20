@@ -34,7 +34,7 @@
       </div>
       <div id="profile" class="tab-pane">
         <div class="p-user-preference__profile">
-          <%= image_tag avatar_url_for(current_user), size: 100, class: "c-avatar p-user-preference__profile--avatar"%>
+          <%= image_tag current_user.avatar, size: 100, class: "c-avatar p-user-preference__profile--avatar"%>
           <label class="p-user-preference__profile--name-label" for="name">ユーザー名</label>
           <p class="p-user-preference__profile--name"><%= @user.name %></p>
           <p class="p-user-preference__profile--introduction"><%= @user.self_introduction %></p>

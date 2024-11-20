@@ -1,0 +1,14 @@
+.p-own-room__container {
+  margin-top: 2rem;
+  &:last-child {
+    margin-bottom: 4rem;
+  }
+}
+
+.p-own-room__no-data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 400px;
+}

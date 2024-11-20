@@ -1,0 +1,49 @@
+.p-room-form__container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.p-room-form {
+  &__input {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    &--image {
+      @extend .p-room-form__input;
+      align-items: end;
+    }
+    &--preview {
+      display: inline-flex;
+      align-items: end;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      gap: 1rem 0;
+      @include mq(sm) {
+        width: 60%;
+        justify-content: space-between;
+      }
+    }
+  }
+  &__label {
+    width: 100%;
+    @include mq(sm) {
+      width: 30%;
+    }
+  }
+  .form-control {
+    width: 100%;
+    @include mq(sm) {
+      display: inline;
+      width: 60%;
+    }
+  }
+  &__image-preview {
+    width: round(581px / 4);
+    height: round(335px / 4);
+    object-fit: cover;
+    margin-top: 1rem;
+  }
+}
