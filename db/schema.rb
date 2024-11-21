@@ -40,17 +40,6 @@ ActiveRecord::Schema.define(version: 2024_11_21_065933) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "hotel_bills", force: :cascade do |t|
-    t.integer "accommodation_fee"
-    t.date "lodgment_date"
-    t.integer "room_id", null: false
-    t.integer "reservation_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["reservation_id"], name: "index_hotel_bills_on_reservation_id"
-    t.index ["room_id"], name: "index_hotel_bills_on_room_id"
-  end
-
   create_table "reservations", force: :cascade do |t|
     t.date "check_in_date"
     t.date "check_out_date"
@@ -58,7 +47,7 @@ ActiveRecord::Schema.define(version: 2024_11_21_065933) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "room_id", null: false
+    t.integer "room_id"
     t.index ["room_id"], name: "index_reservations_on_room_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
@@ -90,8 +79,6 @@ ActiveRecord::Schema.define(version: 2024_11_21_065933) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "hotel_bills", "reservations"
-  add_foreign_key "hotel_bills", "rooms"
   add_foreign_key "reservations", "rooms"
   add_foreign_key "reservations", "users"
   add_foreign_key "rooms", "users", on_delete: :cascade
