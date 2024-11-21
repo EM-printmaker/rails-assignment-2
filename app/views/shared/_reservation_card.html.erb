@@ -11,7 +11,7 @@
       <p>チェックイン：<span><%= l reservation.check_in_date %></span></p>
       <p>チェックアウト：<span><%= l reservation.check_out_date %></span></p>
     </div>
-    <p class="p-reservation-card__price">合計料金<span>¥<%= hotel_bill(reservation) %></span></p>
+    <p class="p-reservation-card__price">合計料金<span>¥<%= hotel_bill(reservation).to_s(:delimited) %></span></p>
   </div>
   <div class="p-reservation-card__room">
     <%= image_tag reservation.room.image_resize(581, 335), class: "p-reservation-card__image" %>

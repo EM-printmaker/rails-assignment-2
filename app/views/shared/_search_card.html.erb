@@ -9,7 +9,7 @@
         <%= link_to room do %>
           <h4><%= room.name %></h4>
         <% end %>
-        <p class="p-room-card__rate">¥<span><%= room.rate %></span>〜</p>
+        <p class="p-room-card__rate">¥<span><%= room.rate.to_s(:delimited) %></span>〜</p>
       </div>
       <p class="p-room-card__address"><%= room.address %></p>
       <div class="c-evaluation">

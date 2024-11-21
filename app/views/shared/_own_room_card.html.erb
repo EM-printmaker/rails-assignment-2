@@ -4,7 +4,7 @@
       <h4><%= room.name %></h4>
     <% end %>
     <p>作成日：<span><%= room.created_at.to_s(:datetime_jp) %></span></p>
-    <p class="p-room-card__rate">料金¥<span><%= room.rate %></span></p>
+    <p class="p-room-card__rate">料金¥<span><%= room.rate.to_s(:delimited) %></span></p>
   </div>
   <div class="p-room-card__content-container">
     <%= image_tag room.image_resize(581, 335) , class: "p-room-card__image" %>

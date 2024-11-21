@@ -19,7 +19,7 @@
   </div>
   <div class="p-reservation-confirm__value">
     <p>お支払い金額</p>
-    <p class="p-reservation-confirm__value--rate">¥<%= hotel_bill(@reservation) %></p>
+    <p class="p-reservation-confirm__value--rate">¥<%= hotel_bill(@reservation).to_s(:delimited) %></p>
   </div>
   <p>上記内容で正しければ「確定」ボタンを押してください</p>
 

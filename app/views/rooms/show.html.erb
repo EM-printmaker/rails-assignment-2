@@ -10,7 +10,7 @@
     <div class="p-room-detail__content">
       <div class="p-room-detail__name-rate">
         <h4><%= @room.name %></h4>
-        <p>¥<%= @room.rate %>〜</p>
+        <p>¥<%= @room.rate.to_s(:delimited) %>〜</p>
       </div>
       <p><%= @room.address %></p>
       <% 5.times do %>
