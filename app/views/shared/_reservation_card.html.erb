@@ -8,8 +8,8 @@
 <div class="p-reservation-card">
   <div class="p-reservation-card__content">
     <div class="p-reservation-card__check">
-      <p>チェックイン：<span><%= reservation.check_in_date.to_s(:date_jp) %></span></p>
-      <p>チェックアウト：<span><%= reservation.check_out_date.to_s(:date_jp)  %></span></p>
+      <p>チェックイン：<span><%= l reservation.check_in_date %></span></p>
+      <p>チェックアウト：<span><%= l reservation.check_out_date %></span></p>
     </div>
     <p class="p-reservation-card__price">合計料金<span>¥<%= hotel_bill(reservation) %></span></p>
   </div>

@@ -9,3 +9,7 @@ ja:
         rate: 料金
         address: 住所
         room_image: 施設画像
+  date:
+    formats:
+      default: '%Y / %m / %d'
+
