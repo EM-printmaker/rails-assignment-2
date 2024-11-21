@@ -17,5 +17,9 @@ Rails.application.routes.draw do
       get 'own'
     end
   end
-  resources :reservations
+  resources :reservations do
+    collection do
+      post :confirm
+    end
+  end
 end

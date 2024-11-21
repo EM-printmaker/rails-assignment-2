@@ -1,7 +1,14 @@
-.p-reservations-table {
-  &__image {
-    width: 100px;
-  }
+.p-reservations {
+    &__container {
+      margin: 1rem auto 3rem;
+    }
+    &__no-data-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 600px;
+    }
 }
 
 .p-reservation-time {
@@ -12,12 +19,18 @@
   max-width: 800px;
   &__text {
     margin-bottom: 0;
+    span {
+        display: block;
+      @include mq(min500) {
+        display: inline;
+      }
+    }
   }
 }
 
 .p-reservation-link {
   font-weight: 600;
-  width: 220px;
+  width: 230px;
   text-align: right;
   &--edit {
     margin-right: 1rem;
@@ -53,6 +66,12 @@
     display: inline-flex;
     p:first-of-type {
       margin-right: 1rem;
+      }
+    span {
+      display: block;
+      @include mq(min500) {
+        display: inline;
+      }
     }
   }
   &__price {
@@ -81,6 +100,7 @@
       transition: all 0.2s;
       background-color: rgb(255 255 255 / 0.8);
       padding: 1.5rem;
+      width: 100%;
       height: 100%;
       @include mq(md) {
         max-width: calc(100% - 230px - 1.5rem);
@@ -97,6 +117,26 @@
           -webkit-line-clamp: 3;
         }
       }
+    }
+  }
+}
+
+//confirm
+
+.p-reservation-confirm {
+  &__container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  &__value {
+    display: flex;
+    justify-content: space-between;
+    p:first-of-type {
+      font-weight: 600;
+    }
+    &--rate {
+      font-size: 1.2rem;
+      font-weight: 600;
     }
   }
 }

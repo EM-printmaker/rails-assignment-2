@@ -1,23 +1,25 @@
 <div class="p-reservation-time">
-  <p class="p-reservation-time__text">予約確定日時：<span>2024/10/12 17:25</span></p>
+  <p class="p-reservation-time__text">予約確定日時：<span><%= reservation.updated_at.to_s(:datetime_jp) %></span></p>
   <div class="p-reservation-link">
-    <%= link_to "再予約", root_path, class: "p-reservation-link--edit" %>
-    <%= link_to "キャンセル",root_path, class: "p-reservation-link--cancel" %> 
+    <%= link_to "再予約", [:edit, reservation], class: "p-reservation-link--edit" %>
+    <%= link_to "キャンセル", reservation, method: :delete, class: "p-reservation-link--cancel", data: { confirm: "本当に削除しますか？" } %> 
   </div>
 </div>
 <div class="p-reservation-card">
   <div class="p-reservation-card__content">
     <div class="p-reservation-card__check">
-      <p>チェックイン：<span>2024/10/12</span></p>
-      <p>チェックアウト：<span>2024/10/13</span></p>
+      <p>チェックイン：<span><%= reservation.check_in_date %></span></p>
+      <p>チェックアウト：<span><%= reservation.check_out_date %></span></p>
     </div>
-    <p class="p-reservation-card__price">合計料金<span>¥40,000</span></p>
+    <p class="p-reservation-card__price">合計料金<span>¥<%= hotel_bill(reservation) %></span></p>
   </div>
   <div class="p-reservation-card__room">
-    <%= image_pack_tag "default-image.png", class: "p-reservation-card__image" %>
+    <%= image_tag reservation.room.image_resize(581, 335), class: "p-reservation-card__image" %>
     <div class="p-reservation-card__room-text">
-      <h4>テストホテル</h4>
-      <p>施設紹介文です。これはテストです。後ほど削除してくださ施設紹介文です。これはテストです。後ほど削除してくださ施設紹介文です。これはテストです。後ほど削除してくださ施設紹介文です。これはテストです。後ほど削除してくださ施設紹介文です。これはテストです。後ほど削除してくださ施設紹介文です。これはテストです。後ほど削除してくださ施設紹介文です。これはテストです。後ほど削除してくださ施設紹介文です。これはテストです。後ほど削除してください</p>
+      <%= link_to reservation.room do %>
+        <h4><%= reservation.room.name %></h4>
+        <p><%= reservation.room.description %></p>
+      <% end %>
     </div>
   </div>
 </div>

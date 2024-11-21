@@ -1,7 +1,9 @@
 class Room < ApplicationRecord
   has_one_attached :room_image
   belongs_to :user
-  #has_many :reservations, through: :hotel_bills, dependent:destroy
+  #has_many :hotel_bills
+  #has_many :reservations, through: :hotel_bills
+  has_many :reservations
 
   before_create :get_room_image
 

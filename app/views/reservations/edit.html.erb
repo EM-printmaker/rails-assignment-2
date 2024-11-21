@@ -1,24 +1,19 @@
 <div class="l-wrapper">
-  <div class="p-room-detail__header">
-    <%= link_to "←戻る", :back, class: "p-room-detail__header--back"%>
-    <% if user_signed_in? && current_user.rooms.exists?(id: @room.id) %>
-      <%= link_to "編集", edit_room_path, class: "p-room-detail__header--back"%>
-    <% end %>
-  </div>
+  <h2 class="">再予約する</h2>
   <div class="p-room-detail__container">
-    <%= image_tag @room.room_image, class: "p-room-detail__image"%>
+    <%= image_tag @reservation.room.room_image, class: "p-room-detail__image"%>
     <div class="p-room-detail__content">
       <div class="p-room-detail__name-rate">
-        <h4><%= @room.name %></h4>
-        <p>¥<%= @room.rate %>〜</p>
+        <h4><%= @reservation.room.name %></h4>
+        <p>¥<%= @reservation.room.rate %>〜</p>
       </div>
-      <p><%= @room.address %></p>
+      <p><%= @reservation.room.address %></p>
       <% 5.times do %>
         <%= image_pack_tag "star-fill.svg", size: 16%>
       <% end %>
-      <p><%= @room.description %></p>
+      <p><%= @reservation.room.description %></p>
       <div>
-        <%= form_with(model: @reservation, url: confirm_reservations_path(@reservation), class: "form") do |f| %>
+        <%= form_with(model: @reservation, class: "form") do |f| %>
           <div>
             <%= f.label :check_in_date, "チェックイン" %>
             <%= f.date_field :check_in_date, class: "form-control datepicker" %>
@@ -31,11 +26,12 @@
             <%= f.label :count, "人数" %>
             <%= f.text_field :count, class: "form-control" %>
           </div>
-          <%= f.hidden_field :user_id, value: @user.id %>
-          <%= f.hidden_field :room_id, value: @room.id %>
-          <%= f.submit "予約する", class:"btn btn-success u-button-width" %>
+          <%= f.submit "予約する", class:"btn btn-outline-success u-button-width" %>
         <% end %>
       </div>
+      <%= link_to :back, class: "btn btn-outline-secondary u-button-width" do %>
+        キャンセル
+      <% end %>
     </div>
   </div>
 </div>

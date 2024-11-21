@@ -5,7 +5,7 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable
   has_one_attached :avatar
   has_many :rooms
-  #has_many :reservations, dependent:destroy
+  has_many :reservations
 
   before_create :get_avatar
   validate :verify_file_type
