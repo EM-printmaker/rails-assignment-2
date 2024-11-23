@@ -13,23 +13,32 @@
       <% end %>
       <p><%= @reservation.room.description %></p>
       <div>
-        <%= form_with(model: @reservation, class: "form") do |f| %>
+        <%= form_with(model: @reservation, class: "p-reservation-edit-form") do |f| %>
           <div>
-            <%= f.label :check_in_date, "チェックイン" %>
-            <%= f.date_field :check_in_date, class: "form-control datepicker" %>
+            <%= f.label :check_in_date, "チェックイン", class: "p-reservation-edit-form__label" %>
+            <%= f.date_field :check_in_date, class: "form-control p-reservation-edit-form__input" %>
+            <% if @reservation.errors.include?(:check_in_date) %>
+              <p class="c-error-message"><%= @reservation.errors.full_messages_for(:check_in_date).first %></p>
+            <% end %>
           </div>
           <div>
-            <%= f.label :check_out_date, "チェックアウト" %>
-            <%= f.date_field :check_out_date, class: "form-control datepicker" %>
+            <%= f.label :check_out_date, "チェックアウト", class: "p-reservation-edit-form__label" %>
+            <%= f.date_field :check_out_date, class: "form-control p-reservation-edit-form__input" %>
+            <% if @reservation.errors.include?(:check_out_date) %>
+              <p class="c-error-message"><%= @reservation.errors.full_messages_for(:check_out_date).first %></p>
+            <% end %>
           </div>
           <div>
-            <%= f.label :count, "人数" %>
-            <%= f.text_field :count, class: "form-control" %>
+            <%= f.label :count, "人数", class: "p-reservation-edit-form__label" %>
+            <%= f.text_field :count, class: "form-control p-reservation-edit-form__input" %>
+            <% if @reservation.errors.include?(:count) %>
+              <p class="c-error-message"><%= @reservation.errors.full_messages_for(:count).first %></p>
+            <% end %>
           </div>
-          <%= f.submit "予約する", class:"btn btn-outline-success u-button-width" %>
+          <%= f.submit "再予約する", class:"btn btn-success u-button-width u-ma-t-1-5" %>
         <% end %>
       </div>
-      <%= link_to :back, class: "btn btn-outline-secondary u-button-width" do %>
+      <%= link_to :back, class: "btn btn-outline-secondary u-button-width u-ma-t-1-5" do %>
         キャンセル
       <% end %>
     </div>

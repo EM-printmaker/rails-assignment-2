@@ -7,6 +7,11 @@ class Room < ApplicationRecord
 
   before_create :get_room_image
 
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :rate, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
+  validates :address, presence: true
+
   def image_resize(width, height)
     return unless room_image.content_type.in?(%w[image/jpeg image/png])
     room_image.variant(resize_to_fill: [width, height]).processed

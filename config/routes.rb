@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     collection do
       get 'own'
     end
+    resources :reservations, only: [:create]
   end
   resources :reservations do
     collection do

@@ -7,12 +7,12 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form"}) do |f| %>
       <div class="field form-floating">
         <%= f.email_field :email, autocomplete: "email", class: "form-control", id: "floatingInput_1", placeholder: "sample@email.com"  %>
-        <%= f.label :email, for: "floatingInput_1" %><br />
+        <%= f.label :email, for: "floatingInput_1" %>
       </div>
     
       <div class="field form-floating">
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control", id: "floatingInput_2", placeholder: "パスワード" %>
-        <%= f.label :password, for: "floatingInput_2" %><br />
+        <%= f.label :password, for: "floatingInput_2" %>
       </div>
     
       <%# if devise_mapping.rememberable? %>

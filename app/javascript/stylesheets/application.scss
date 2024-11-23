@@ -22,6 +22,8 @@
 @import "./object/component/card-container";
 @import "./object/component/avatar";
 @import "./object/component/button";
+@import "./object/component/notice";
+@import "./object/component/error";
 
 
 // project
@@ -31,6 +33,7 @@
 @import "./object/project/user-form";
 @import "./object/project/user-preference";
 @import "./object/project/reservations";
+@import "./object/project/reservation-form";
 @import "./object/project/room_card";
 @import "./object/project/room-form";
 @import "./object/project/room";

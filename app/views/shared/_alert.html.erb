@@ -1,0 +1,10 @@
+<% if flash[:notice] %>
+  <div class="c-notice-container hide">
+    <p class="c-notice"><%= flash[:notice] %></p>
+  </div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="c-alert-container hide">
+    <p class="c-alert-text"><%= flash[:alert] %></p>
+  </div>
+<% end %>

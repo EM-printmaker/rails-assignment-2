@@ -7,26 +7,37 @@
     <p>無料会員登録で様々なサービスを利用できます。</p>
     
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form"}) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
     
       <div class="field form-floating">
         <%= f.text_field :name, class: "form-control", id: "floatingInput_1", placeholder: "ユーザー名" %>
         <%= f.label :name, for: "floatingInput_1" %><br />
+        <% if resource.errors.include?(:name) %>
+          <p class="c-error-message"><%= resource.errors.full_messages_for(:name).first %></p>
+        <% end %>
       </div>
 
       <div class="field form-floating">
         <%= f.email_field :email, autocomplete: "email", class: "form-control", id: "floatingInput_2", placeholder: "sample@email.com" %>
         <%= f.label :email, for: "floatingInput_2" %><br />
+        <% if resource.errors.include?(:email) %>
+          <p class="c-error-message"><%= resource.errors.full_messages_for(:email).first %></p>
+        <% end %>
       </div>
     
       <div class="field form-floating">
         <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "floatingInput_3", placeholder: "パスワード" %>
         <%= f.label :password, for: "floatingInput_3" %>
+        <% if resource.errors.include?(:password) %>
+          <p class="c-error-message"><%= resource.errors.full_messages_for(:password).first %></p>
+        <% end %>
       </div>
     
       <div class="field form-floating">
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "floatingInput_4", placeholder: "パスワード再入力" %>
         <%= f.label :password_confirmation, for: "floatingInput_4" %><br />
+        <% if resource.errors.include?(:password_confirmation) %>
+          <p class="c-error-message"><%= resource.errors.full_messages_for(:password_confirmation).first %></p>
+        <% end %>
       </div>
     
       <div class="actions">

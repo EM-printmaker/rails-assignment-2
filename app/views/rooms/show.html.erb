@@ -2,7 +2,7 @@
   <div class="p-room-detail__header">
     <%= link_to "←戻る", :back, class: "p-room-detail__header--back"%>
     <% if user_signed_in? && current_user.rooms.exists?(id: @room.id) %>
-      <%= link_to "編集", edit_room_path, class: "p-room-detail__header--back"%>
+      <%= link_to "編集", edit_room_path(@room.id), class: "p-room-detail__header--back"%>
     <% end %>
   </div>
   <div class="p-room-detail__container">
@@ -18,20 +18,30 @@
       <% end %>
       <p><%= @room.description %></p>
       <div>
-        <%= form_with(model: @reservation, url: confirm_reservations_path(@reservation), class: "form") do |f| %>
-          <div>
-            <%= f.label :check_in_date, "チェックイン" %>
-            <%= f.date_field :check_in_date, class: "form-control datepicker" %>
+        <%= form_with(model: @reservation, url: confirm_reservations_path(@reservation), class: "form p-reservation-form") do |f| %>
+          <div class="p-reservation-form__container">
+            <div class="p-reservation-form__input-group">
+              <%= f.label :check_in_date, "チェックイン" %>
+              <%= f.date_field :check_in_date, class: "form-control datepicker" %>
+              <% if @reservation.errors.include?(:check_in_date) %>
+                <p class="c-error-message"><%= @reservation.errors.full_messages_for(:check_in_date).first %></p>
+              <% end %>
+            </div>
+            <div class="p-reservation-form__input-group">
+              <%= f.label :check_out_date, "チェックアウト" %>
+              <%= f.date_field :check_out_date, class: "form-control datepicker" %>
+              <% if @reservation.errors.include?(:check_out_date) %>
+                <p class="c-error-message"><%= @reservation.errors.full_messages_for(:check_out_date).first %></p>
+              <% end %>
+            </div>
+            <div class="p-reservation-form__input-group">
+              <%= f.label :count, "人数" %>
+              <%= f.text_field :count, class: "form-control" %>
+              <% if @reservation.errors.include?(:count) %>
+                <p class="c-error-message"><%= @reservation.errors.full_messages_for(:count).first %></p>
+              <% end %>
+            </div>
           </div>
-          <div>
-            <%= f.label :check_out_date, "チェックアウト" %>
-            <%= f.date_field :check_out_date, class: "form-control datepicker" %>
-          </div>
-          <div>
-            <%= f.label :count, "人数" %>
-            <%= f.text_field :count, class: "form-control" %>
-          </div>
-          <%= f.hidden_field :user_id, value: @user.id %>
           <%= f.hidden_field :room_id, value: @room.id %>
           <%= f.submit "予約する", class:"btn btn-success u-button-width" %>
         <% end %>

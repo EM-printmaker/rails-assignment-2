@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2024_11_21_065933) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "reservations", "rooms"
+  add_foreign_key "reservations", "rooms", on_delete: :cascade
   add_foreign_key "reservations", "users"
   add_foreign_key "rooms", "users", on_delete: :cascade
 end

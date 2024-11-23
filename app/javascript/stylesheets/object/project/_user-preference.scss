@@ -77,7 +77,7 @@
 
 .p-user-edit {
   &__input {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -89,7 +89,7 @@
       width: 30%;
     }
   }
-  .form-control {
+  &__input-field {
     width: 100%;
     @include mq(sm) {
       display: inline;

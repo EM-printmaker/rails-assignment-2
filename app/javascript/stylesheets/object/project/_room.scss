@@ -41,6 +41,7 @@
 .p-room-detail {
   &__image {
     width: 100%;
+    height: 100%;
     @include mq(lg) {
       width: 40%;
     }

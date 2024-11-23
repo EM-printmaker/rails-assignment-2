@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :show, :edit, :confirm, :update]
+
   def index
     @user = current_user
     @reservation = Reservation.new
@@ -12,19 +14,25 @@ class ReservationsController < ApplicationController
   def confirm
     @reservation = Reservation.new(reservation_params)
     @user = current_user
-    @stay_days = (@reservation.check_out_date - @reservation.check_in_date).to_i
-    @hotel_bill = (@reservation.room.rate * @reservation.count * @stay_days)
+    @room = Room.find(params[:reservation][:room_id])
+    if @reservation.invalid?
+      flash[:alert] = "予約情報が不足しています"
+      render "rooms/show" 
+    end
   end
 
   def create
     @reservation =  current_user.reservations.new(reservation_params)
     @user = current_user
-    if  @reservation.save
+    @room = Room.find(params[:reservation][:room_id])
+    if params[:back]
+      render "rooms/show"
+    elsif  @reservation.save
       flash[:notice] = "予約が完了しました"
       redirect_to reservations_path
     else
       flash[:alert] = "予約に失敗しました"
-      render "confirm"
+      render "rooms/show"
     end
   end
 
@@ -56,7 +64,7 @@ class ReservationsController < ApplicationController
 
   def reservation_params
     params.require(:reservation).permit(
-      :check_in_date, :check_out_date, :count, :user_id, :room_id,
-    )
+      :check_in_date, :check_out_date, :count, :room_id,
+    ).merge(user_id: current_user.id)
   end
 end

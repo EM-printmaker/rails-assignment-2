@@ -8,6 +8,11 @@ class User < ApplicationRecord
   has_many :reservations
 
   before_create :get_avatar
+  
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :password, presence: true, on: :create
+  validates :password_confirmation, presence: true, on: :create
   validate :verify_file_type
 
   private

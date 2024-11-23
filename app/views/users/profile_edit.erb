@@ -25,14 +25,24 @@
               画像をアップロード
               <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png", id: "imageInput", class: "u-hidden" %>
             </label>
+            <% if @user.errors.include?(:avatar) %>
+              <p class="c-error-message"><%= @user.errors.full_messages_for(:avatar).first %></p>
+            <% end %>
           </div>
           <div class="field p-user-edit__input">
             <%= f.label :name, class: "p-user-edit__label" %>
-            <%= f.text_field :name, class: "form-control" %>
+            <div class="p-user-edit__input-field">
+              <%= f.text_field :name, class: "form-control" %>
+              <% if @user.errors.include?(:name) %>
+                <p class="c-error-message"><%= @user.errors.full_messages_for(:name).first %></p>
+              <% end %>
+            </div>
           </div>
           <div class="field p-user-edit__input">
             <%= f.label :self_introduction, class: "p-user-edit__label" %>
-            <%= f.text_area :self_introduction,class: "form-control" %>
+            <div class="p-user-edit__input-field">
+              <%= f.text_area :self_introduction,class: "form-control" %>
+            </div>
           </div>
           <div class="actions">
             <%= f.submit "保存する", class: "btn btn-success u-button-width" %>

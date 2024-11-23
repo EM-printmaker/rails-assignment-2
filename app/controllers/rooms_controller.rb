@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all
+    redirect_to search_path
   end
 
   def new
