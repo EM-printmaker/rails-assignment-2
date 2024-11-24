@@ -29,21 +29,37 @@
           <div class="p-reservation-form__container">
             <div class="p-reservation-form__input-group">
               <%= f.label :check_in_date, "チェックイン" %>
-              <%= f.date_field :check_in_date, class: "form-control datepicker" %>
+              <div class="input-group c-date-picker" id="datetimePicker1" data-target-input="nearest">
+                <%= f.text_field :check_in_date,
+                  class: "form-control p-reservation-form__input",
+                  id: "datePicker1Input",
+                  'data-target': "#datetimePicker1",
+                  placeholder: "---- / -- / --",
+                  autocomplete: "off"
+                %>
+              </div>
               <% if @reservation.errors.include?(:check_in_date) %>
                 <p class="c-error-message"><%= @reservation.errors.full_messages_for(:check_in_date).first %></p>
               <% end %>
             </div>
             <div class="p-reservation-form__input-group">
               <%= f.label :check_out_date, "チェックアウト" %>
-              <%= f.date_field :check_out_date, class: "form-control datepicker" %>
+              <div class="input-group c-date-picker" id="datetimePicker2" data-target-input="nearest">
+                <%= f.text_field :check_out_date,
+                  class: "form-control p-reservation-form__input",
+                  id: "datePicker2Input",
+                  'data-target': "#datetimePicker2",
+                  placeholder: "---- / -- / --",
+                  autocomplete: "off"
+                %>
+              </div>
               <% if @reservation.errors.include?(:check_out_date) %>
                 <p class="c-error-message"><%= @reservation.errors.full_messages_for(:check_out_date).first %></p>
               <% end %>
             </div>
             <div class="p-reservation-form__input-group">
               <%= f.label :count, "人数" %>
-              <%= f.text_field :count, class: "form-control" %>
+              <%= f.text_field :count, class: "form-control p-reservation-form__input" %>
               <% if @reservation.errors.include?(:count) %>
                 <p class="c-error-message"><%= @reservation.errors.full_messages_for(:count).first %></p>
               <% end %>
@@ -56,3 +72,10 @@
     </div>
   </div>
 </div>
+<!-- Popperjs -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha256-BRqBN7dYgABqtY9Hd4ynE+1slnEw+roEPFzQ7TRRfcg=" crossorigin="anonymous"></script>
+<!-- Tempus Dominus JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/js/tempus-dominus.min.js" crossorigin="anonymous"></script>
+<!-- Tempus Dominus Styles -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/css/tempus-dominus.min.css" crossorigin="anonymous">
+<%= javascript_pack_tag "datepicker/index" %>

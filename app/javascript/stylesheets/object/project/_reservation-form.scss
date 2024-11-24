@@ -10,6 +10,9 @@
       width: calc((100% - 1rem) / 3);
     }
   }
+  &__input {
+    margin-top: 1rem;
+  }
 }
 
 .p-reservation-edit-form {

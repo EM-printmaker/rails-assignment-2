@@ -16,14 +16,30 @@
         <%= form_with(model: @reservation, class: "p-reservation-edit-form") do |f| %>
           <div>
             <%= f.label :check_in_date, "チェックイン", class: "p-reservation-edit-form__label" %>
-            <%= f.date_field :check_in_date, class: "form-control p-reservation-edit-form__input" %>
+            <div class="input-group c-date-picker-edit" id="datetimePicker1" data-target-input="nearest">
+              <%= f.text_field :check_in_date,
+                class: "form-control  p-reservation-edit-form__input",
+                id: "datePicker1Input",
+                'data-target': "#datetimePicker1",
+                placeholder: "---- / -- / --",
+                autocomplete: "off"
+              %>
+            </div>
             <% if @reservation.errors.include?(:check_in_date) %>
               <p class="c-error-message"><%= @reservation.errors.full_messages_for(:check_in_date).first %></p>
             <% end %>
           </div>
           <div>
             <%= f.label :check_out_date, "チェックアウト", class: "p-reservation-edit-form__label" %>
-            <%= f.date_field :check_out_date, class: "form-control p-reservation-edit-form__input" %>
+            <div class="input-group c-date-picker-edit" id="datetimePicker2" data-target-input="nearest">
+              <%= f.text_field :check_out_date,
+                class: "form-control p-reservation-edit-form__input",
+                id: "datePicker2Input",
+                'data-target': "#datetimePicker2",
+                placeholder: "---- / -- / --",
+                autocomplete: "off"
+              %>
+            </div>
             <% if @reservation.errors.include?(:check_out_date) %>
               <p class="c-error-message"><%= @reservation.errors.full_messages_for(:check_out_date).first %></p>
             <% end %>
@@ -38,9 +54,16 @@
           <%= f.submit "再予約する", class:"btn btn-success u-button-width u-ma-t-1-5" %>
         <% end %>
       </div>
-      <%= link_to :back, class: "btn btn-outline-secondary u-button-width u-ma-t-1-5" do %>
+      <%= link_to :reservations, class: "btn btn-outline-secondary u-button-width u-ma-t-1-5" do %>
         キャンセル
       <% end %>
     </div>
   </div>
 </div>
+<!-- Popperjs -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha256-BRqBN7dYgABqtY9Hd4ynE+1slnEw+roEPFzQ7TRRfcg=" crossorigin="anonymous"></script>
+<!-- Tempus Dominus JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/js/tempus-dominus.min.js" crossorigin="anonymous"></script>
+<!-- Tempus Dominus Styles -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/css/tempus-dominus.min.css" crossorigin="anonymous">
+<%= javascript_pack_tag "datepicker/index" %>

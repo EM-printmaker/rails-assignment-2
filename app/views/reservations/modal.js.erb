@@ -1,8 +1,8 @@
-var modal = document.getElementById('modal');
+var reservationModal = document.getElementById('reservationModal');
 
-modal.innerHTML = '<%= escape_javascript(render partial: 'shared/reservation_delete_modal', locals: {reservation: @reservation, room: @room}) %>';
+reservationModal.innerHTML = '<%= escape_javascript(render partial: 'shared/reservation_delete_modal', locals: {reservation: @reservation, room: @room}) %>';
 
-modal.classList.remove('c-modal-hidden');
+reservationModal.classList.remove('c-modal-hidden');
 
 var myModal = document.getElementById('myModal');
 var modalContent = document.getElementById('modalContent');
@@ -10,15 +10,15 @@ var modalOpen = document.getElementById('modalOpen');
 var cancel = document.getElementById('cancel');
 
 modalOpen.addEventListener('click', () => {
-  modal.classList.remove('c-modal-hidden');
+  reservationModal.classList.remove('c-modal-hidden');
 });
 
 cancel.addEventListener('click', () => {
-  modal.classList.add('c-modal-hidden');
+  reservationModal.classList.add('c-modal-hidden');
 });
 
 myModal.addEventListener('click', () => {
-  modal.classList.add('c-modal-hidden');
+  reservationModal.classList.add('c-modal-hidden');
 });
 
 modalContent.addEventListener('click', () => {
