@@ -60,6 +60,13 @@ class ReservationsController < ApplicationController
     flash[:notice] = "予約を削除しました"
     redirect_to request.referer
   end
+
+  def modal
+    @user = current_user
+    @reservation = Reservation.find(params[:reservation_id])
+    @room = Room.find(params[:room_id])
+  end
+
   private
 
   def reservation_params

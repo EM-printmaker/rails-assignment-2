@@ -2,7 +2,7 @@
   <p class="p-reservation-time__text">予約確定日時：<span><%= reservation.updated_at.to_s(:datetime_jp) %></span></p>
   <div class="p-reservation-link">
     <%= link_to "再予約", [:edit, reservation], class: "p-reservation-link--edit" %>
-    <%= link_to "キャンセル", reservation, method: :delete, class: "p-reservation-link--cancel", data: { confirm: "本当に削除しますか？" } %> 
+    <%= link_to "キャンセル", modal_reservations_path(room_id: reservation.room.id, reservation_id: reservation.id), remote: true, class: "p-reservation-link--cancel", id:"modalOpen" %> 
   </div>
 </div>
 <div class="p-reservation-card">
@@ -23,3 +23,4 @@
     </div>
   </div>
 </div>
+<div id="modal" modal-id="room" class="c-modal-hidden"></div>

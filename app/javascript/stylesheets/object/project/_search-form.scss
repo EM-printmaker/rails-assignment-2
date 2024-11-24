@@ -4,12 +4,12 @@
   flex-direction: column;
 }
 
-.p-search_result__form {
+.p-search-result__form {
   @extend .p-search-form;
   flex-direction: row;
 }
 
-.p-search_result {
+.p-search-result {
   &__header {
     padding: 3rem 5rem;
     display: flex;

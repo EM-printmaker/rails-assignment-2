@@ -3,16 +3,6 @@
     <h2 class="p-first-view__title">
       宿泊先を検索
     </h2>
-    <% if flash[:notice] %>
-      <div class="c-notice-container hide">
-        <p class="c-notice"><%= flash[:notice] %></p>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="c-alert-container hide">
-        <p class="c-alert-text"><%= flash[:alert] %></p>
-      </div>
-    <% end %>
     <%= form_with(url: search_path, method: :get, class: "p-search-form") do |f| %>
       <%= f.text_field :area , class: "form-control", placeholder: "目的地"%>
       <%= f.hidden_field :range, value: "area" %>

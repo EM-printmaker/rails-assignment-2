@@ -1,0 +1,23 @@
+<div class="modal c-modal" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" id="modalContent">
+      <div class="modal-header">
+        <h5 class="modal-title">以下の施設を削除しますか？</h5>
+      </div>
+      <div class="modal-body">
+        <div class="c-modal__body">
+          <%= image_tag room.room_image, class: "c-modal__body--image"%>
+          <div  class="c-modal__body--text">
+            <p class="c-modal__body--name"><%= room.name %></p>
+            <p class="c-modal__body--rate">¥<%= room.rate.to_s(:delimited) %> / 日</p>
+          </div>
+        </div>
+        <p>よろしければ「削除」ボタンを押してください。</p>
+      </div>
+      <div class="modal-footer">
+        <%= button_to "削除", room_path(room), method: :delete, class: "btn btn-danger button" %>
+        <button type="button" class="btn btn-secondary button" id="cancel">キャンセル</button>
+      </div>
+    </div>
+  </div>
+</div>

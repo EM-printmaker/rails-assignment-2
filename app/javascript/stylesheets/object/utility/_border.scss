@@ -1,0 +1,10 @@
+.u-search-result__header--border {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    border-bottom: 1px solid $light-gray;
+    width: calc(100% - 4rem);
+  }
+}

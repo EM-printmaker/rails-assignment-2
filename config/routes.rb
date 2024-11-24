@@ -15,12 +15,14 @@ Rails.application.routes.draw do
   resources :rooms do
     collection do
       get 'own'
+      get 'modal'
     end
     resources :reservations, only: [:create]
   end
   resources :reservations do
     collection do
       post :confirm
+      get 'modal'
     end
   end
 end

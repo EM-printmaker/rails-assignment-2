@@ -56,4 +56,9 @@ class RoomsController < ApplicationController
     @room = Room.new
     @rooms = @user.rooms
   end
+
+  def modal
+    @user = current_user
+    @room = Room.find(params[:room_id])
+  end
 end
