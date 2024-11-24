@@ -7,10 +7,6 @@ class ReservationsController < ApplicationController
     @reservations = @user.reservations
   end
 
-  def new
-    @reservation = Reservation.new
-  end
-
   def confirm
     @reservation = Reservation.new(reservation_params)
     @user = current_user
@@ -36,9 +32,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def show
-  end
-  
   def edit
     @reservation = current_user.reservations.find(params[:id])
   end

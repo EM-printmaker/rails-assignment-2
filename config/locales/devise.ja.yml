@@ -21,7 +21,6 @@ ja:
     registrations:
       user:
         signed_up: "アカウント登録が完了しました。"
-        signed_up: "アカウント登録が完了しました。"
         updated: "アカウント情報を更新しました。"
   errors:
     messages:

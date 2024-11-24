@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
     resources :reservations, only: [:create]
   end
-  resources :reservations do
+  resources :reservations, only: [:index, :create, :edit, :update, :destroy] do
     collection do
       post :confirm
       get 'modal'
