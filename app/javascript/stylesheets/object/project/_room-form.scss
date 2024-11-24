@@ -1,0 +1,58 @@
+.p-room-form__container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.p-room-form {
+  &__input {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    &--image {
+      @extend .p-room-form__input;
+
+      align-items: end;
+    }
+
+    &--preview {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 1rem 0;
+      align-items: end;
+      justify-content: center;
+      width: 100%;
+
+      @include mq(sm) {
+        justify-content: space-between;
+        width: 60%;
+      }
+    }
+  }
+
+  &__label {
+    width: 100%;
+
+    @include mq(sm) {
+      width: 30%;
+    }
+  }
+
+  &__input-field {
+    width: 100%;
+
+    @include mq(sm) {
+      display: inline;
+      width: 60%;
+    }
+  }
+
+  &__image-preview {
+    width: round(581px / 4);
+    height: round(335px / 4);
+    margin-top: 1rem;
+    object-fit: cover;
+  }
+}

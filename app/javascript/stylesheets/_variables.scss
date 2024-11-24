@@ -1,0 +1,20 @@
+$main-color: #203744;
+$gray: #888;
+$light-gray: #e9ecef;
+$white: #fff;
+$black: #000;
+$dark: #212529;
+$link: #069;
+$red: #cc4343;
+$green: #198754;
+$error-text: #ea5549;
+$datepicker-red: #f33;
+$datepicker-blue: #06f;
+$breakpoints: (
+  "sm": "screen and (min-width: 400px)",
+  "min500": "screen and (min-width: 500px)",
+  "min600": "screen and (min-width: 600px)",
+  "md": "screen and (min-width: 768px)",
+  "lg": "screen and (min-width: 1000px)",
+  "xl": "screen and (min-width: 1200px)",
+) !default;

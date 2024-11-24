@@ -1,0 +1,25 @@
+<div class="modal c-modal" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" id="modalContent">
+      <div class="modal-header">
+        <h5 class="modal-title">以下の予約を削除しますか？</h5>
+      </div>
+      <div class="modal-body">
+        <div class="c-modal__body">
+          <%= image_tag reservation.room.room_image, class: "c-modal__body--image"%>
+          <div  class="c-modal__body--text">
+            <p><%= reservation.room.name %></p>
+            <p><%= l reservation.check_in_date %> 〜 <%= l reservation.check_out_date %></p>
+            <p><%= reservation.count %>人</p>
+            <p>¥<%= hotel_bill(reservation).to_s(:delimited) %></p>
+          </div>
+        </div>
+        <p>よろしければ「削除」ボタンを押してください。</p>
+      </div>
+      <div class="modal-footer">
+        <%= button_to "削除", reservation_path(reservation), method: :delete, class: "btn btn-danger button" %>
+        <button type="button" class="btn btn-secondary button" id="cancel">キャンセル</button>
+      </div>
+    </div>
+  </div>
+</div>

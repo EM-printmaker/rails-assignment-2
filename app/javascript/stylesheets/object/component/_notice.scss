@@ -1,0 +1,41 @@
+.c-notice-container {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  z-index: 10;
+  width: fit-content;
+  padding: 0.4rem 0.8rem;
+  white-space: nowrap;
+  background-color: rgba(25, 135, 84, 90%);
+  border-radius: 0.25rem;
+  box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 30%);
+  transform: translateX(-50%);
+}
+
+.c-alert-container {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  z-index: 10;
+  width: fit-content;
+  padding: 0.4rem 0.8rem;
+  white-space: nowrap;
+  background-color: rgba(220, 53, 69, 100%);
+  border-radius: 0.25rem;
+  box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 30%);
+  transform: translateX(-50%);
+}
+
+.c-notice {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #fff;
+  letter-spacing: 0.05rem;
+}
+
+.c-alert-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #fff;
+  letter-spacing: 0.05rem;
+}

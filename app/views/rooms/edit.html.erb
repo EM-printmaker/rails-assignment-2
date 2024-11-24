@@ -1,0 +1,65 @@
+<div class="l-wrapper">
+  <h2>施設情報の編集</h2>
+  <div class="p-room-form__container">
+    <%= form_with(model: @room, class: "form p-room-form") do |f| %>
+      <div class="p-room-form__input">
+        <%= f.label :name, class: "p-room-form__label" %>
+        <div class="p-room-form__input-field">
+          <%= f.text_field :name, class: "form-control" %>
+          <% if @room.errors.include?(:name) %>
+            <p class="c-error-message"><%= @room.errors.full_messages_for(:name).first %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="p-room-form__input">
+        <%= f.label :description,class: "p-room-form__label" %>
+        <div class="p-room-form__input-field">
+          <%= f.text_area :description, class: "form-control" %>
+          <% if @room.errors.include?(:description) %>
+            <p class="c-error-message"><%= @room.errors.full_messages_for(:description).first %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="p-room-form__input">
+        <%= f.label :rate,class: "p-room-form__label"  %>
+        <div class="p-room-form__input-field">
+          <%= f.text_field :rate, class: "form-control" %>
+          <% if @room.errors.include?(:rate) %>
+            <p class="c-error-message"><%= @room.errors.full_messages_for(:rate).first %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="p-room-form__input">
+        <%= f.label :address,class: "p-room-form__label"  %>
+        <div class="p-room-form__input-field">
+          <%= f.text_field :address, class: "form-control" %>
+          <% if @room.errors.include?(:address) %>
+            <p class="c-error-message"><%= @room.errors.full_messages_for(:address).first %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="p-room-form__input--image">
+        <%= f.label :room_image,class: "p-room-form__label"  %>
+        <div  class="p-room-form__input--preview">
+          <%= image_tag @room.room_image, class: "p-room-form__image-preview", id: "imagePreview" %>
+          <label class="c-select-button">
+            画像をアップロード
+            <%= f.file_field :room_image, accept: "image/jpeg,image/gif,image/png", id: "imageInput", class: "u-hidden" %>
+          </label>
+          <% if @room.errors.include?(:room_image) %>
+            <p class="c-error-message"><%= @room.errors.full_messages_for(:room_image).first %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="">
+        <%= f.submit "保存する", class: "btn btn-success u-button-width" %>
+      </div>
+    <% end %>
+    <div class="p-user-preference__edit-cancel">
+      <%= link_to :back, class: "btn btn-outline-secondary u-button-width" do %>
+        キャンセル
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= javascript_pack_tag 'image/index' %>

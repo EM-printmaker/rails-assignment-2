@@ -1,0 +1,15 @@
+// bootstrap
+
+.form-control:focus {
+  border-color: var(--bs-border-color);
+  box-shadow: none;
+}
+
+.nav-link {
+  padding: 1rem;
+  color: #198754;
+
+  &:hover {
+    color: #198754;
+  }
+}

@@ -1,0 +1,22 @@
+<div class="p-room-card">
+  <div class="p-room-card__header">
+    <%= link_to room do %>
+      <h4><%= room.name %></h4>
+    <% end %>
+    <p>作成日：<span><%= room.created_at.to_s(:datetime_jp) %></span></p>
+    <p class="p-room-card__rate">料金¥<span><%= room.rate.to_s(:delimited) %></span></p>
+  </div>
+  <div class="p-room-card__content-container">
+    <%= image_tag room.image_resize(581, 335) , class: "p-room-card__image" %>
+    <div class="p-room-card__content">
+      <p class="p-room-card__content--text">
+        <%= room.description %>
+      </p>
+      <div class="p-room-card__link">
+        <%= link_to "編集", [:edit, room], class: "p-room-card__link--edit" %>
+        <%= link_to "削除", modal_rooms_path(room_id: room.id), remote: true, class: "p-room-card__link--delete", id:"modalOpen" %>
+        <div id="roomModal" modal-id="room" class="c-modal-hidden"></div>
+      </div>
+    </div>
+  </div>
+</div>

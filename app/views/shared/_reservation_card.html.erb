@@ -1,0 +1,26 @@
+<div class="p-reservation-time">
+  <p class="p-reservation-time__text">予約確定日時：<span><%= reservation.updated_at.to_s(:datetime_jp) %></span></p>
+  <div class="p-reservation-link">
+    <%= link_to "再予約", [:edit, reservation], class: "p-reservation-link--edit" %>
+    <%= link_to "キャンセル", modal_reservations_path(room_id: reservation.room.id, reservation_id: reservation.id), remote: true, class: "p-reservation-link--cancel", id:"modalOpen" %> 
+  </div>
+</div>
+<div class="p-reservation-card">
+  <div class="p-reservation-card__content">
+    <div class="p-reservation-card__check">
+      <p>チェックイン：<span><%= l reservation.check_in_date %></span></p>
+      <p>チェックアウト：<span><%= l reservation.check_out_date %></span></p>
+    </div>
+    <p class="p-reservation-card__price">合計料金<span>¥<%= hotel_bill(reservation).to_s(:delimited) %></span></p>
+  </div>
+  <div class="p-reservation-card__room">
+    <%= image_tag reservation.room.image_resize(581, 335), class: "p-reservation-card__image" %>
+    <div class="p-reservation-card__room-text">
+      <%= link_to reservation.room do %>
+        <h4><%= reservation.room.name %></h4>
+        <p><%= reservation.room.description %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div id="reservationModal" modal-id="reservation" class="c-modal-hidden"></div>

@@ -1,0 +1,86 @@
+// datepickerサイズ
+.tempus-dominus-widget {
+  width: 16rem !important;
+}
+// datepicker日付カラムサイズ
+.tempus-dominus-widget .date-container-days {
+  grid-auto-rows: 30px !important;
+}
+
+// datepicker文字サイズ
+.date-container-days div.day {
+  font-size: 0.9rem;
+}
+
+// datepicker文字色
+.date-container-days div.dow {
+  color: $dark !important;
+  font-weight: bold;
+}
+
+.date-container-days div.dow:first-child {
+  color: $datepicker-red !important;
+}
+
+.date-container-days div.dow:nth-child(7) {
+  color: $datepicker-blue !important;
+}
+
+.date-container-days div.day.weekend {
+  color: $datepicker-red;
+}
+
+.date-container-days div.day:nth-child(7n) {
+  color: $datepicker-blue;
+}
+
+.date-container-days div.day.old.weekend,
+.date-container-days div.day.new.weekend {
+  color: $dark;
+}
+
+// datepicker前月次月矢印
+.fa-chevron-left {
+  position: relative;
+  &::after {
+    content: "";
+    background-image: url("~images/caret-left-fill.svg");
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: 5px;
+  }
+}
+.fa-chevron-right {
+  position: relative;
+  &::after {
+    content: "";
+    background-image: url("~images/caret-right-fill.svg");
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: 5px;
+    right: 0;
+  }
+}
+
+// カスタム
+.c-date-picker {
+  &::after {
+    content: "";
+    background-image: url('~images/calendar.svg');
+    background-repeat: round;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.c-date-picker-edit {
+  &::after {
+    @extend .c-date-picker;
+    top: 43%;
+  }
+}

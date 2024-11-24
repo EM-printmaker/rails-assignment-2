@@ -1,0 +1,53 @@
+<div class="l-wrapper">
+  <h2 class="p-user-preference__title u-svg-and-text">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-fill-gear" viewBox="0 0 16 16">
+      <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4m9.886-3.54c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+    </svg>
+    設定
+  </h2>
+  <div class="tabs">
+    <ul class="nav nav-tabs nav-fill p-user-preference__nav">
+      <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="tab" href="#account">アカウント</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#profile">プロフィール</a>
+      </li>
+    </ul>
+
+    <div class="tab-content p-user-preference__content u-pa-b-6">
+      <div id="account" class="tab-pane show active">
+        <div class="p-user-preference__account">
+          <label>メールアドレス</label>
+          <p><%= @user.email %></p>
+          <label>パスワード</label>
+          <p>********</p>
+        </div>
+        <div class="p-user-preference__edit-link">
+          <%= link_to edit_user_registration_path, class: "u-svg-and-text p-user-preference__edit-link--color" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+              <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+            </svg>
+            編集する
+          <% end %>
+        </div>
+      </div>
+      <div id="profile" class="tab-pane">
+        <div class="p-user-preference__profile">
+          <%= image_tag current_user.avatar, size: 100, class: "c-avatar p-user-preference__profile--avatar"%>
+          <label class="p-user-preference__profile--name-label" for="name">ユーザー名</label>
+          <p class="p-user-preference__profile--name"><%= @user.name %></p>
+          <p class="p-user-preference__profile--introduction"><%= @user.self_introduction %></p>
+        </div>
+        <div class="p-user-preference__edit-link">
+          <%= link_to profile_edit_users_path, class: "u-svg-and-text p-user-preference__edit-link--color" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+              <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+            </svg>
+            編集する
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

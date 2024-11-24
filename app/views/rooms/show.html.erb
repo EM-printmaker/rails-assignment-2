@@ -1,0 +1,81 @@
+<div class="p-search-result__header u-search-result__header--border">
+  <%= form_with(url: search_path, method: :get, class: "p-search-result__form") do |f| %>
+    <%= f.text_field :area , class: "form-control", placeholder: "目的地"%>
+    <%= f.text_field :word , class: "form-control", placeholder: "キーワードを入力"%>
+    <%= f.submit "検索", class: "btn btn-outline-success" %>
+  <% end %>
+</div>
+<div class="l-wrapper">
+  <div class="p-room-detail__header">
+    <%= link_to "←戻る", :back, class: "p-room-detail__header--back"%>
+    <% if user_signed_in? && current_user.rooms.exists?(id: @room.id) %>
+      <%= link_to "編集", edit_room_path(@room.id), class: "p-room-detail__header--back"%>
+    <% end %>
+  </div>
+  <div class="p-room-detail__container">
+    <%= image_tag @room.room_image, class: "p-room-detail__image"%>
+    <div class="p-room-detail__content">
+      <div class="p-room-detail__name-rate">
+        <h4><%= @room.name %></h4>
+        <p>¥<%= @room.rate.to_s(:delimited) %>〜</p>
+      </div>
+      <p><%= @room.address %></p>
+      <% 5.times do %>
+        <%= image_pack_tag "star-fill.svg", size: 16%>
+      <% end %>
+      <p class="p-room-detail__description"><%= @room.description %></p>
+      <div>
+        <%= form_with(model: @reservation, url: confirm_reservations_path(@reservation), class: "form p-reservation-form") do |f| %>
+          <div class="p-reservation-form__container">
+            <div class="p-reservation-form__input-group">
+              <%= f.label :check_in_date, "チェックイン" %>
+              <div class="input-group c-date-picker" id="datetimePicker1" data-target-input="nearest">
+                <%= f.text_field :check_in_date,
+                  class: "form-control p-reservation-form__input",
+                  id: "datePicker1Input",
+                  'data-target': "#datetimePicker1",
+                  placeholder: "---- / -- / --",
+                  autocomplete: "off"
+                %>
+              </div>
+              <% if @reservation.errors.include?(:check_in_date) %>
+                <p class="c-error-message"><%= @reservation.errors.full_messages_for(:check_in_date).first %></p>
+              <% end %>
+            </div>
+            <div class="p-reservation-form__input-group">
+              <%= f.label :check_out_date, "チェックアウト" %>
+              <div class="input-group c-date-picker" id="datetimePicker2" data-target-input="nearest">
+                <%= f.text_field :check_out_date,
+                  class: "form-control p-reservation-form__input",
+                  id: "datePicker2Input",
+                  'data-target': "#datetimePicker2",
+                  placeholder: "---- / -- / --",
+                  autocomplete: "off"
+                %>
+              </div>
+              <% if @reservation.errors.include?(:check_out_date) %>
+                <p class="c-error-message"><%= @reservation.errors.full_messages_for(:check_out_date).first %></p>
+              <% end %>
+            </div>
+            <div class="p-reservation-form__input-group">
+              <%= f.label :count, "人数" %>
+              <%= f.text_field :count, class: "form-control p-reservation-form__input" %>
+              <% if @reservation.errors.include?(:count) %>
+                <p class="c-error-message"><%= @reservation.errors.full_messages_for(:count).first %></p>
+              <% end %>
+            </div>
+          </div>
+          <%= f.hidden_field :room_id, value: @room.id %>
+          <%= f.submit "予約する", class:"btn btn-success u-button-width" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Popperjs -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha256-BRqBN7dYgABqtY9Hd4ynE+1slnEw+roEPFzQ7TRRfcg=" crossorigin="anonymous"></script>
+<!-- Tempus Dominus JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/js/tempus-dominus.min.js" crossorigin="anonymous"></script>
+<!-- Tempus Dominus Styles -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/css/tempus-dominus.min.css" crossorigin="anonymous">
+<%= javascript_pack_tag "datepicker/index" %>

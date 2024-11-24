@@ -1,0 +1,27 @@
+.p-search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.p-search-result__form {
+  @extend .p-search-form;
+
+  flex-direction: row;
+}
+
+.p-search-result {
+  &__header {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 5rem;
+  }
+
+  &__count {
+    font-size: 1.2rem;
+
+    &--number {
+      font-weight: 600;
+    }
+  }
+}

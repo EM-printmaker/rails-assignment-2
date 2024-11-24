@@ -1,0 +1,62 @@
+.l-header {
+  padding: 0.5rem;
+  background-color: $main-color;
+
+  @include mq(sm) {
+    padding: 1rem;
+  }
+
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $white;
+
+    @include mq(sm) {
+      font-size: 2rem;
+    }
+  }
+
+  &-button-container {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $white;
+    letter-spacing: 0.1em;
+  }
+
+  &__menu {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    color: $white;
+    white-space: nowrap;
+    outline: none;
+
+    &--name {
+      display: none;
+
+      @include mq(sm) {
+        display: inline;
+      }
+    }
+  }
+}
+
+.text-small {
+  font-size: 85%;
+}
+
+.dropdown-toggle:not(:focus) {
+  outline: 0;
+}

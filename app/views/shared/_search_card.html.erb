@@ -1,0 +1,26 @@
+<div class="p-room-card">
+  <div class="p-room-card__header">
+
+  </div>
+  <div class="p-room-card__content-container">
+    <%= image_tag room.image_resize(581, 335) , class: "p-room-card__search-image" %>
+    <div class="p-room-card__search-content">
+      <div class="p-room-card__name-rate">
+        <%= link_to room do %>
+          <h4><%= room.name %></h4>
+        <% end %>
+        <p class="p-room-card__rate">¥<span><%= room.rate.to_s(:delimited) %></span>〜</p>
+      </div>
+      <p class="p-room-card__address"><%= room.address %></p>
+      <div class="c-evaluation">
+        <% 5.times do %>
+          <%= image_pack_tag "star-fill.svg", size: 16%>
+        <% end %>
+      </div>
+      <p class="p-room-card__search-content--text"><%= room.description %></p>
+      <div class="p-room-card__link">
+        <%= link_to "詳細はこちら", room, class: "btn  btn-success" %>
+      </div>
+    </div>
+  </div>
+</div>
