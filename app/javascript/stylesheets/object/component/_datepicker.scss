@@ -39,6 +39,31 @@
   color: $dark;
 }
 
+// datepicker前月次月矢印
+.fa-chevron-left {
+  position: relative;
+  &::after {
+    content: "";
+    background-image: url("~images/caret-left-fill.svg");
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: 5px;
+  }
+}
+.fa-chevron-right {
+  position: relative;
+  &::after {
+    content: "";
+    background-image: url("~images/caret-right-fill.svg");
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: 5px;
+    right: 0;
+  }
+}
+
 // カスタム
 .c-date-picker {
   &::after {
@@ -58,5 +83,4 @@
     @extend .c-date-picker;
     top: 43%;
   }
-
 }

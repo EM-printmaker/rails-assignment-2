@@ -1,9 +1,7 @@
 class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :room
-  #has_many :hotel_bills
-  #has_many :rooms, through: :hotel_bills
-  #accepts_nested_attributes_for :hotel_bills, allow_destroy: true
+
   validates :check_in_date, presence: true
   validates :check_out_date, presence: true
   validates :count, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }

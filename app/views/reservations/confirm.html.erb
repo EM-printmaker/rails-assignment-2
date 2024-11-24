@@ -1,36 +1,36 @@
 <div class="l-wrapper">
-  <h2 class="">予約内容の確認</h2>
+  <h2>予約内容の確認</h2>
   <div class="p-reservation-confirm__container">
-  <div class="p-reservation-confirm__value">
-    <p>チェックイン</p>
-    <p><%= l @reservation.check_in_date %></p>
-  </div>
-  <div class="p-reservation-confirm__value">
-    <p>チェックアウト</p>
-    <p><%= l @reservation.check_out_date %></p>
-  </div>
-  <div class="p-reservation-confirm__value">
-    <p>日数</p>
-    <p><%= stay_days(@reservation) %>日</p>
-  </div>
-  <div class="p-reservation-confirm__value">
-    <p>人数</p>
-    <p><%= @reservation.count %>人</p>
-  </div>
-  <div class="p-reservation-confirm__value">
-    <p>お支払い金額</p>
-    <p class="p-reservation-confirm__value--rate">¥<%= hotel_bill(@reservation).to_s(:delimited) %></p>
-  </div>
-  <p>上記内容で正しければ「確定」ボタンを押してください</p>
+    <div class="p-reservation-confirm__value">
+      <p>チェックイン</p>
+      <p><%= l @reservation.check_in_date %></p>
+    </div>
+    <div class="p-reservation-confirm__value">
+      <p>チェックアウト</p>
+      <p><%= l @reservation.check_out_date %></p>
+    </div>
+    <div class="p-reservation-confirm__value">
+      <p>日数</p>
+      <p><%= stay_days(@reservation) %>日</p>
+    </div>
+    <div class="p-reservation-confirm__value">
+      <p>人数</p>
+      <p><%= @reservation.count %>人</p>
+    </div>
+    <div class="p-reservation-confirm__value">
+      <p>お支払い金額</p>
+      <p class="p-reservation-confirm__value--rate">¥<%= hotel_bill(@reservation).to_s(:delimited) %></p>
+    </div>
+    <p>上記内容で正しければ「確定」ボタンを押してください</p>
 
-  <%= form_with(model: @reservation) do |f| %>
-    <%= f.hidden_field :check_in_date %>
-    <%= f.hidden_field :check_out_date %>
-    <%= f.hidden_field :count %>
-    <%= f.hidden_field :user_id %>
-    <%= f.hidden_field :room_id %>
-    <%= f.submit "予約を確定", class:"btn btn-success u-button-width" %>
-    <%= f.submit "キャンセル", name: "back", class: "btn btn-outline-secondary u-button-width u-ma-t-1-5" %>
-  <% end %>
+    <%= form_with(model: @reservation) do |f| %>
+      <%= f.hidden_field :check_in_date %>
+      <%= f.hidden_field :check_out_date %>
+      <%= f.hidden_field :count %>
+      <%= f.hidden_field :user_id %>
+      <%= f.hidden_field :room_id %>
+      <%= f.submit "予約を確定", class:"btn btn-success u-button-width" %>
+      <%= f.submit "キャンセル", name: "back", class: "btn btn-outline-secondary u-button-width u-ma-t-1-5" %>
+    <% end %>
   </div>
 </div>

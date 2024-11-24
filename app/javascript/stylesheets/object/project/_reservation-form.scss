@@ -1,15 +1,18 @@
 .p-reservation-form {
   &__container {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
+
   &__input-group {
     width: 100%;
+
     @include mq(min600) {
       width: calc((100% - 1rem) / 3);
     }
   }
+
   &__input {
     margin-top: 1rem;
   }
@@ -19,6 +22,7 @@
   &__input {
     margin-top: 0.5rem;
   }
+
   &__label {
     margin-top: 1rem;
   }

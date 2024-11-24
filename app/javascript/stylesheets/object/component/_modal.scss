@@ -1,35 +1,41 @@
 #reservationModal {
   transition: all 0.2s;
 }
+
 #roomModal {
   transition: all 0.2s;
 }
 
 .c-modal-hidden {
-  opacity: 0;
   visibility: hidden;
+  opacity: 0;
 }
 
 .c-modal {
   display: block;
-  background-color: rgba(0,0,0,0.3);
   text-align: left;
+  background-color: rgba(0,0,0,30%);
+
   &__body {
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
+
     &--image {
       width: calc(581px / 4);
       height: calc(335px / 4);
       object-fit: cover;
     }
+
     &--text {
       display: flex;
       flex-direction: column;
+
       p {
         margin-bottom: 0;
       }
     }
+
     &--rate {
 
     }
@@ -41,6 +47,6 @@
   width: 100dvw;
   height: 100vh;
   height: 100dvh;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,30%);
   transition: all 0.2s;
 }

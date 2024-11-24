@@ -1,8 +1,6 @@
 class Room < ApplicationRecord
   has_one_attached :room_image
   belongs_to :user
-  #has_many :hotel_bills
-  #has_many :reservations, through: :hotel_bills
   has_many :reservations
 
   before_create :get_room_image
@@ -25,7 +23,4 @@ class Room < ApplicationRecord
       self.room_image.attach(io: File.open(file_path), filename: 'default-image.png', content_type: 'image/png')
     end
   end
-
-
-
 end

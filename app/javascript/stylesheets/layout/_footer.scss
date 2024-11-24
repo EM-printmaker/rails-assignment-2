@@ -2,12 +2,13 @@
   position: sticky;
   top: 100vh;
   top: 100dvh;
-  background-color: $main-color;
-  color: white;
   padding: 1rem 0;
+  color: white;
+  background-color: $main-color;
+
   &__logo {
-    color: white;
-    font-weight: 700;
     font-size: 2rem;
+    font-weight: 700;
+    color: white;
   }
 }
